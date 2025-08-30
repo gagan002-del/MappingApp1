@@ -1,4 +1,4 @@
-name: Android CI (Zip Upload)
+name: Android CI (Zip Upload Fix)
 
 on:
   push:
@@ -12,12 +12,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Unzip Project
+      - name: Unzip Project and Move Files
         run: |
           unzip MappingApp_GitHubReady.zip -d .
-          cd MappingApp_GitHubReady
-          mv * ..
-          cd ..
+          mv MappingApp_GitHubReady/* .
           rm -rf MappingApp_GitHubReady
           ls -R
 
