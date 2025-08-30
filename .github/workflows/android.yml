@@ -15,8 +15,10 @@ jobs:
       - name: Unzip Project
         run: |
           unzip MappingApp_GitHubReady.zip -d .
-          mv MappingApp/* .
-          rm -rf MappingApp
+          cd MappingApp_GitHubReady
+          mv * ..
+          cd ..
+          rm -rf MappingApp_GitHubReady
           ls -R
 
       - name: Set up JDK
